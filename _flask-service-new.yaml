@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-flask-service
+spec:
+  selector:
+    app: python-flask  # Match labels with your Flask pod
+  ports:
+    - protocol: TCP
+      port: 80           # Port for accessing the service within the cluster
+      targetPort: 5000   # Port your Flask application is listening on
+  type: NodePort         # Expose the service on a high-numbered port on each Node

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: combined-app
+spec:
+  containers:
+    - name: python-flask
+      image: superdockerpro/python-flask:your-tag
+      ports:
+        - containerPort: 5000
+
+    - name: python-api
+      image: superdockerpro/python-api:your-tag
+      ports:
+        - containerPort: 5000
+
+    - name: postgres-python
+      image: postgres
+      env:
+        - name: POSTGRES_PASSWORD
+          value: test1234
+      ports:
+        - containerPort: 5432

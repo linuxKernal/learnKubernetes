@@ -1,0 +1,23 @@
+kubectl apply -f flask-deployment.yaml
+kubectl get nodes
+kubectl get deployments
+kubectl get services
+kubectl get pods
+kubectl get pods --all-namespaces
+kubectl describe firstindex-7d75666d69-fccsd
+kubectl describe service flask-service
+kubectl delete pod firstindex-7d75666d69-dvbb6
+kubectl delete deployments firstindex
+kubectl delete service flask-service
+kubectl port-forward service/flask-service 8080:8080
+http://python-api.default.svc.cluster.local:5000
+kubectl logs -f python-flask-deployment-7f6d74ff78-tcxlt
+kubectl exec -it python-flask-deployment-7f6d74ff78-tcxlt  -- /bin/bash
+
+
+kubectl apply -f flask-deployment.yaml
+kubectl apply -f api-deployment.yaml
+kubectl apply -f postgres-statefulset.yaml
+kubectl apply -f postgres-service.yaml
+kubectl apply -f python-api-service.yaml
+kubectl apply -f flask-service.yaml

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-flask-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-flask
+  template:
+    metadata:
+      labels:
+        app: python-flask
+    spec:
+      containers:
+        - name: python-flask
+          image: superdockerpro/python-flask
+          ports:
+            - containerPort: 5000
